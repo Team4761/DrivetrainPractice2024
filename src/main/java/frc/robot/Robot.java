@@ -65,7 +65,7 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousPeriodic() {
     if (map.drivetrain != null) {
-      map.drivetrain.drive(0.2, 0.0);
+      map.drivetrain.drive(0.4, 0.0);
     }
   }
 

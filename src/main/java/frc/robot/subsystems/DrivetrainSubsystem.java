@@ -1,9 +1,11 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.hardware.TalonFX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import frc.robot.Constants;
 
 public class DrivetrainSubsystem {
@@ -11,24 +13,29 @@ public class DrivetrainSubsystem {
     // ONLY RUN THE FRONT MOTORS
     // THE BACK MOTORS FOLLOW THE FRONT MOTORS
     // CHECK THE CONSTRUCTOR
-    CANSparkMax frontLeftMotor;
-    CANSparkMax frontRightMotor;
-    CANSparkMax backLeftMotor;
-    CANSparkMax backRightMotor;
+    TalonFX frontLeftMotor;
+    TalonFX frontRightMotor;
+    TalonFX backLeftMotor;
+    TalonFX backRightMotor;
 
     DifferentialDrive drivetrain;
+
+    MotorControllerGroup left;
+    MotorControllerGroup right;
 
 
     // Constructor
     public DrivetrainSubsystem() {
-        frontLeftMotor = new CANSparkMax(Constants.FRONT_LEFT_MOTOR_ID, MotorType.kBrushless);
-        frontRightMotor = new CANSparkMax(Constants.FRONT_RIGHT_MOTOR_ID, MotorType.kBrushless);
-        backLeftMotor = new CANSparkMax(Constants.BACK_LEFT_MOTOR_ID, MotorType.kBrushless);
-        backRightMotor = new CANSparkMax(Constants.BACK_RIGHT_MOTOR_ID, MotorType.kBrushless);
-        backLeftMotor.follow(frontLeftMotor);
-        backRightMotor.follow(frontRightMotor);
+        frontLeftMotor = new TalonFX(Constants.FRONT_LEFT_MOTOR_ID);
+        frontRightMotor = new TalonFX(Constants.FRONT_RIGHT_MOTOR_ID);
+        backLeftMotor = new TalonFX(Constants.BACK_LEFT_MOTOR_ID);
+        backRightMotor = new TalonFX(Constants.BACK_RIGHT_MOTOR_ID);
 
-        drivetrain = new DifferentialDrive(frontLeftMotor, frontRightMotor);
+        left = new MotorControllerGroup(frontLeftMotor, backLeftMotor);
+        right = new MotorControllerGroup(frontRightMotor, backRightMotor);
+        // backRightMotor.harvestOrgans();
+
+        drivetrain = new DifferentialDrive(left, right);
     }
 
 
