@@ -41,8 +41,8 @@ public class DrivetrainSubsystem {
 
     /**
      * 
-     * @param speedForwards A number between -1.0 and 1.0, where 1.0 is 100% power.
-     * @param speedTurn A number between -1.0 and 1.0, where 1.0 is 100% power.
+     * @param speedForwards Fowards is positive. A number between -1.0 and 1.0, where 1.0 is 100% power.
+     * @param speedTurn Left is positive. A number between -1.0 and 1.0, where 1.0 is 100% power.
      */
     public void drive(double speedForwards, double speedTurn) {
         drivetrain.arcadeDrive(speedForwards, speedTurn);
