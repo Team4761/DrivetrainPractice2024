@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.subsystems.GoodbyeWorldCommand;
 import frc.robot.subsystems.HelloWorldCommand;
+import frc.robot.subsystems.MoveCommand;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -79,11 +80,9 @@ public class Robot extends TimedRobot {
   /** This function is called once when teleop is enabled. */
   @Override
   public void teleopInit() {
-    CommandScheduler.getInstance().schedule(new SequentialCommandGroup(
-      new HelloWorldCommand(),
-      new WaitCommand(5),
-      new GoodbyeWorldCommand()
-    ));
+    CommandScheduler.getInstance().schedule(
+      new MoveCommand(1, 1).withTimeout(2)
+    );
   }
 
   /** This function is called periodically during operator control. */

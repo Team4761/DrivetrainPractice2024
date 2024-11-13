@@ -6,9 +6,10 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class DrivetrainSubsystem {
+public class DrivetrainSubsystem extends SubsystemBase {
     // Motors
     // ONLY RUN THE FRONT MOTORS
     // THE BACK MOTORS FOLLOW THE FRONT MOTORS
