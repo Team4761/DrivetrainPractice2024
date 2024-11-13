@@ -4,7 +4,7 @@ import frc.robot.subsystems.DrivetrainSubsystem;
 
 public class RobotMap {
     
-    DrivetrainSubsystem drivetrain = null;
+    public DrivetrainSubsystem drivetrain = null;
 
     
     public RobotMap() {
