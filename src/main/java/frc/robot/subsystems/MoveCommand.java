@@ -1,15 +1,14 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.Command;
+
 import frc.robot.Robot;
 
 public class MoveCommand extends Command {
-
     double speedForwards;
     double speedTurn;
 
     long endTime;
-
     public MoveCommand(double speedForwards, double speedTurn) {
         this.speedForwards = speedForwards;
         this.speedTurn = speedTurn;
